@@ -1,4 +1,4 @@
-# TODO: make an upload function and lean up the code
+# TODO: make an upload function and lean up the codeom
 import ftplib
 from ftplib import FTP
 import os

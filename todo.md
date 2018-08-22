@@ -1,0 +1,1 @@
+- make an upload function and lean up the codeom __TODO__ [ftp.py](ftp.py)
