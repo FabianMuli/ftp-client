@@ -1,6 +1,5 @@
 import ftplib
 from ftplib import FTP
-import os
 
 # connecting to the server
 try:
@@ -17,18 +16,15 @@ try:
     for file in files:
         print(file)  # print the files in the working directory
 
-    file_copy = "robots"
-    file_orig = "/public_html/"
-    with open(file_copy, 'w') as fp:
+    file_copy = "robots.txt"
+    ftp.cwd("public_html")
 
-            res = ftp.retrlines('RETR ' + file_orig, fp.write)
+    def getFile(ftp, file_copy):
+        try:
+            ftp.retrbinary("RETR " + file_copy, open(file_copy, 'wb').write)
+        except ftplib.all_errors as e:
+            print(e)
 
-            if not res.startswith('226 Transfer complete'):
-                print('Download failed')
-                if os.path.isfile(file_copy):
-                    os.remove(file_copy)
+    getFile(ftp, file_copy)
 except ftplib.all_errors as e:
     print('FTP error:', e)
-
-    if os.path.isfile(file_copy):
-            os.remove(file_copy)
