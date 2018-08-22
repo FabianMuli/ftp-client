@@ -1,2 +1,2 @@
 # ftp-client
-ftp client using python (wxPython)
+ftp client using python
