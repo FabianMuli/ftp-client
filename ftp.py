@@ -26,7 +26,12 @@ try:
     def changeDir():
         os.chdir(cwd[12:])
         print("Changed directory to ", cwd[12:], " ...")
-        ftp.retrbinary("RETR " + file_copy, open(file_copy, 'wb').write)
+        if not os.path.isfile(file_copy):
+            print("Creating file ...")
+            ftp.retrbinary("RETR " + file_copy, open(file_copy, 'wb').write)
+            print("File downloaded successfully.")
+        else:
+            print("File already exists.")
 
     def getFile(ftp, file_copy):
         try:
