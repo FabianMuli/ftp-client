@@ -11,13 +11,13 @@ try:
     wdir = ftp.pwd()
     print(wdir)
 
+    ftp.cwd("public_html")
     files = []
     ftp.dir(files.append)
     for file in files:
         print(file)  # print the files in the working directory
 
-    file_copy = "robots.txt"
-    ftp.cwd("public_html")
+    file_copy = input("Enter file to download -> ")
 
     def getFile(ftp, file_copy):
         try:
