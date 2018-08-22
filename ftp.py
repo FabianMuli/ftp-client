@@ -17,14 +17,16 @@ try:
     for file in files:
         print(file)  # print the files in the working directory
 
-    file_copy = input("Enter file to download -> ")
+    if_upload = input("Do you want to download a file? (y/N) : ")
+    if if_upload == 'y':
+        file_copy = input("Enter file to download -> ")
 
-    def getFile(ftp, file_copy):
-        try:
-            ftp.retrbinary("RETR " + file_copy, open(file_copy, 'wb').write)
-        except ftplib.all_errors as e:
-            print(e)
+        def getFile(ftp, file_copy):
+            try:
+                ftp.retrbinary("RETR " + file_copy, open(file_copy, 'wb').write)
+            except ftplib.all_errors as e:
+                print(e)
 
-    getFile(ftp, file_copy)
+        getFile(ftp, file_copy)
 except ftplib.all_errors as e:
     print('FTP error:', e)
