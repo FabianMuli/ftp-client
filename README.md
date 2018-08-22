@@ -1,2 +1,2 @@
 # ftp-client
-ftp client using python
+simple ftp client using `python`

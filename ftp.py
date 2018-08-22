@@ -1,3 +1,4 @@
+# TODO: make an upload function and lean up the code
 import ftplib
 from ftplib import FTP
 import os
