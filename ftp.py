@@ -5,9 +5,9 @@ import os
 
 # connecting to the server
 try:
-    ftp = FTP("server")
+    ftp = FTP("ftp.fabdesignskenya.co.ke")
 
-    ftp.login(user="user", passwd="password")
+    ftp.login(user="fabdesig", passwd="d0ZoAm797a")
     print(ftp.getwelcome())  # welcome messages
 
     wdir = ftp.pwd()
